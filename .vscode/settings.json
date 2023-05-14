@@ -5,6 +5,9 @@
         "deque": "cpp",
         "string": "cpp",
         "vector": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "algorithm": "cpp",
+        "random": "cpp",
+        "sstream": "cpp"
     }
 }

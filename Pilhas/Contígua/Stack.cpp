@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream> 
 #include "Stack.h"
 using namespace std;
 
@@ -107,4 +108,48 @@ void Stack::getTop(StackEntry &x){
 /*
 pré-condição: pilha não está vazia 
 pós-condição: a variável x recebe uma cópia do item no topo da pilha e a pilha permanece inalterada
+*/
+
+string Stack::toString(){ 
+    int i;
+    stringstream ss;
+
+    ss << "[";
+    for(i = 1; i <= top; i++){ 
+        ss << dados[i];
+        
+        if(i != top)
+            ss << ",";
+    }
+
+    ss << "]";
+    return ss.str();
+}
+/*
+pré-condição: nenhuma
+pós-condição: retorna pilha no formato de string. Por exemplo, pilha contendo elementos 8, 10 e 8 -> retorna [8,10,8]
+*/
+
+StackEntry Stack::get(int i){
+    if (i < 1 || i > top){ 
+        cout << "Índice inválido" << endl;
+        abort();
+    }
+    return dados[i];
+}
+/*
+pré-condição: 1 <= i <= top
+pós-condição: retorna o valor do i-ésimo elemento da pilha
+*/
+
+void Stack::change(int i, StackEntry x){
+    if (i < 1 || i > top){ 
+        cout << "Índice inválido" << endl;
+        abort();
+    }
+    dados[i] = x;
+}
+/*
+pré-condição: 1 <= i <= top
+pós-condição: o i-ésimo elemento da pilha recebe o valor x
 */
