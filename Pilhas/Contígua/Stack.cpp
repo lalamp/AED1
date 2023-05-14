@@ -65,7 +65,7 @@ pós-condição: o item no topo da pilha é removido e seu valor é retornado na
 */
 
 void Stack::clear(){
-    int x;
+    StackEntry x;
     while(! empty()){
         pop(x);
     }
@@ -119,7 +119,7 @@ string Stack::toString(){
         ss << dados[i];
         
         if(i != top)
-            ss << ",";
+            ss << ", ";
     }
 
     ss << "]";

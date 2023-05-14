@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-typedef int StackEntry;
+typedef char StackEntry;
 
 class Stack{
     public:

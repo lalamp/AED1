@@ -2,6 +2,7 @@
 #include "Stack.h"
 using namespace std;
 
+//StackEntry = char
 int main(){
     Stack S;
     StackEntry x, y, z;
