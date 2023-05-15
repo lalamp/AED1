@@ -1,8 +1,10 @@
 #include <iostream>
 using namespace std;
 
-typedef int ArrayEntry;
+#ifndef ARRAY_H
+#define ARRAY_H
 
+typedef int ArrayEntry;
 class Array{
     public:
         Array(ArrayEntry l1, ArrayEntry u1);
@@ -15,3 +17,5 @@ class Array{
         static const int MAX = 100;
         ArrayEntry array[MAX + 1];
 };
+
+#endif

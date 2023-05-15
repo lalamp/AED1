@@ -1,11 +1,13 @@
 #include <iostream>
 using namespace std;
- 
-typedef int ListEntry;
 
-class List{ 
+#ifndef LIST2_H
+#define LIST2_H
+
+typedef int ListEntry;
+class List2{ 
     public:
-        List();
+        List2();
         void insert(int p, ListEntry x);
         void remove(int p, ListEntry &x);
         void retrieve(int p, ListEntry &x);
@@ -16,7 +18,18 @@ class List{
         int size();
         int search(ListEntry x);
     private:
-        static const int MaxList = 100;
+        struct ListNode;
+        typedef ListNode * ListPointer;
+        
+        struct ListNode{
+            ListEntry entry;
+            ListPointer nextNode;
+        };
+
         int count;
-        ListEntry entry[MaxList+1]; 
+        ListPointer head;
+
+        void setPosition(int p, ListPointer &x);        
 };
+
+#endif

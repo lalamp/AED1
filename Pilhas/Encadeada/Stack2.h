@@ -1,8 +1,10 @@
 #include <iostream>
 using namespace std;
 
-typedef int StackEntry;
+#ifndef STACK2_H
+#define STACK2_H
 
+typedef int StackEntry;
 class Stack2{
     public:
         Stack2();
@@ -22,3 +24,5 @@ class Stack2{
         };
         StackPointer top;    
 };
+
+#endif

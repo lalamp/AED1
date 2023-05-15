@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+#ifndef QUEUE_H
+#define QUEUE_H
+
 typedef int QueueEntry;
 
 class Queue{ 
@@ -22,3 +25,5 @@ class Queue{
         int count; 
         QueueEntry entry[MaxQueue+1]; 
 };
+
+#endif

@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+#ifndef QUEUE2_H
+#define QUEUE2_H
+
 typedef int QueueEntry;
 
 class Queue2{ 
@@ -25,3 +28,5 @@ class Queue2{
 
         QueuePointer head, tail;
 };
+
+#endif

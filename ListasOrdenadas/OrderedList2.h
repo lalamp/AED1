@@ -1,8 +1,10 @@
 #include <iostream>
 using namespace std;
  
-typedef int ListEntry;
+#ifndef ORDEREDLIST_H
+#define ORDEREDLIST_H
 
+typedef int ListEntry;
 class OrderedList2{ 
     public:
         OrderedList2();
@@ -25,3 +27,5 @@ class OrderedList2{
         int count;
         ListPointer head, sentinel;       
 };
+
+#endif

@@ -1,8 +1,10 @@
 #include <iostream>
 using namespace std;
 
-typedef char StackEntry;
+#ifndef STACK_H
+#define STACK_H
 
+typedef char StackEntry;
 class Stack{
     public:
         Stack();
@@ -23,3 +25,5 @@ class Stack{
         StackEntry dados[MAX + 1];
         int top;
 };
+
+#endif

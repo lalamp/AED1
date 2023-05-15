@@ -4,7 +4,6 @@ using namespace std;
 
 #ifndef BAG_H
 #define BAG_H
-
 class Bag{ 
     public:
         Bag();
