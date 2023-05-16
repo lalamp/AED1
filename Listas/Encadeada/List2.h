@@ -17,6 +17,10 @@ class List2{
         void clear();
         int size();
         int search(ListEntry x);
+        void minimum(int &p, int &x);
+        void reverse();
+        void reverseNewList(List2 &L);
+        void sort();
     private:
         struct ListNode;
         typedef ListNode * ListPointer;

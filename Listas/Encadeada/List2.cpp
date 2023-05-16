@@ -144,3 +144,79 @@ int List2::search(ListEntry x){
 
     return(p == NULL ? 0 : i);
 }
+
+void List2::minimum(int &p, int &x){ 
+    ListPointer q = head;
+    int i;
+
+    if(empty())
+        p = 0; 
+    else{ 
+        x = q->entry; p = 1; //1º elemento é o menor (posição 1)
+    
+        q = q->nextNode; 
+        i = 2; 
+        while (q != NULL){ 
+            if(q->entry < x){ 
+                x = q->entry; p = i;//novo mínimo
+            }
+            q = q->nextNode; 
+            i++; 
+        }
+    }
+}
+/*
+pré-condição: lista criada e não vazia
+pós-condição: retorna posição p que o elemento de menor valor x se encontra na lista; caso não encontre, retorna p igual a zero
+*/
+
+void List2::reverse(){ 
+    ListPointer p = head, q = NULL;
+    while(p != NULL){ 
+        head = p;
+        p = p->nextNode;
+        head->nextNode = q;
+        q = head;
+    }
+}
+/*
+pré: Lista criada
+pós: Inverte a posição dos elementos da lista
+*/
+
+void List2::reverseNewList(List2 &L){ 
+    ListPointer p = head, r;
+    L.clear();
+    while(p != NULL){ 
+        r = new ListNode;
+        r->entry = p->entry;
+        r->nextNode = L.head;
+        L.head = r;
+        p = p->nextNode;
+    }
+    L.count = count;
+}
+
+void List2::sort(){ 
+    ListPointer p; // lista não ordenada
+    ListPointer newHead, q, r; // lista ordenada
+    newHead = NULL;
+    
+    while(head != NULL){ 
+        p = head;
+        head = head->nextNode;
+        q = NULL;
+        r = newHead; // q fica um nó atrás de r
+        while(r != NULL && r->entry < p->entry){ 
+            q = r; 
+            r = r->nextNode;
+        }
+        if(r == newHead)
+            newHead = p;
+        else
+            q->nextNode = p;
+
+        p->nextNode = r;
+    }
+    head = newHead;
+}
