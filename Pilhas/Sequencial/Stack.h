@@ -4,7 +4,7 @@ using namespace std;
 #ifndef STACK_H
 #define STACK_H
 
-typedef char StackEntry;
+typedef int StackEntry;
 class Stack{
     public:
         Stack();
