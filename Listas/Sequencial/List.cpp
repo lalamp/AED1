@@ -2,15 +2,15 @@
 #include "List.h"
 using namespace std;
 
-List::List(){
+OrderedList::OrderedList(){
     count = 0;
 }
 
-List::~List(){
+OrderedList::~OrderedList(){
     cout << "Lista destruída" << endl;
 }
 
-bool List::empty(){
+bool OrderedList::empty(){
     return (count == 0);
 }
 /*
@@ -18,7 +18,7 @@ pré-condição: nenhuma
 pós-condição: função retorna true se a list está vazia; false caso contrário
 */
 
-bool List::full(){
+bool OrderedList::full(){
     return (count == MaxList);
 }
 /*
@@ -26,7 +26,7 @@ pré-condição: nenhuma
 pós-condição: função retorna true se a list está cheia; false caso contrário
 */
 
-void List::insert(int p, ListEntry x){
+void OrderedList::insert(int p, ListEntry x){
     if(full()){
         cout << "Lista cheia" << endl;
         abort();
@@ -50,7 +50,7 @@ pré-condição: list não está cheia e 1 <= p <= n+1, onde n é o número de e
 pós-condição: o item x é armazenado na posição p da list e todas as entradas seguintes (desde que p <= n) têm suas posições incrementadas em uma unidade
 */
 
-void List::remove(int p, ListEntry &x){
+void OrderedList::remove(int p, ListEntry &x){
     if(empty()){
         cout << "Lista vazia" << endl;
         abort();
@@ -73,7 +73,7 @@ pré-condição: list não está cheia e 1 <= p <= n+1, onde n é o número de e
 pós-condição: o item da posição p é removido da list e retornado na variável x, todas as entradas seguintes (desde que p <= n) têm suas posições decrementadas em uma unidade
 */
 
-void List::retrieve(int p, ListEntry &x){
+void OrderedList::retrieve(int p, ListEntry &x){
     if(empty()){
         cout << "Lista vazia" << endl;
         abort();
@@ -90,7 +90,7 @@ pré-condição: list não está vazia e 1 <= p <= n, onde n é o número de ent
 pós-condição: a entrada da posição p da list é retornada na variável x; a list permanece inalterada
 */
 
-void List::replace(int p, ListEntry x){
+void OrderedList::replace(int p, ListEntry x){
      if(empty()){
         cout << "Lista vazia" << endl;
         abort();
@@ -107,7 +107,7 @@ pré-condição: list não está vazia e 1 <= p <= n, onde n é o número de ent
 pós-condição: a entrada da posição p da list é substituída por x; as demais entradas da lista mantêm-se inalteradas
 */
 
-void List::clear(){
+void OrderedList::clear(){
     count = 0;
 }
 /*
@@ -115,7 +115,7 @@ pré-condição : nenhuma
 pós-condição: todos os itens da list são descartados e ela torna-se uma list vazia
 */
 
-int List::size(){
+int OrderedList::size(){
     return count;
 }
 /*
@@ -123,7 +123,7 @@ pré-condição : nenhuma
 pós-condição: a função retorna o número de itens na list
 */
 
-int List::search(ListEntry x){
+int OrderedList::search(ListEntry x){
     int p = 1;
     while(p <= count && entry[p] != x){
         p++;

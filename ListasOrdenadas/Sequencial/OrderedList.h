@@ -1,17 +1,15 @@
 #include <iostream>
 using namespace std;
 
-#ifndef LIST_H
-#define LIST_H
+#ifndef ORDEREDLIST_H
+#define ORDEREDLIST_H
 
 typedef int ListEntry;
 class OrderedList{ 
     public:
         OrderedList();
-        void insert(int p, ListEntry x);
-        void remove(int p, ListEntry &x);
-        void retrieve(int p, ListEntry &x);
-        void replace(int p, ListEntry x);
+        void insert(ListEntry x);
+        void remove(ListEntry x);
         bool empty();
         bool full();
         void clear();
