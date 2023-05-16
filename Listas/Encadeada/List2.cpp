@@ -35,7 +35,7 @@ void List2::setPosition(int p, ListPointer &current){
         abort();
     }
     current = head;
-    for(int i = 2; i <= p; i++){
+    for(int i = 2; i <= p; i++){           
         current = current->nextNode;
     }
 }

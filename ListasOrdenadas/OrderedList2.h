@@ -15,6 +15,7 @@ class OrderedList2{
         void clear();
         int size();
         int search(ListEntry x);
+        void searchInsert(ListEntry x);
         int range(int min, int max); //random
     private:
         struct ListNode;
@@ -23,6 +24,7 @@ class OrderedList2{
         struct ListNode{
             ListEntry entry;
             ListPointer nextNode;
+            int freq;
         };
 
         int count;

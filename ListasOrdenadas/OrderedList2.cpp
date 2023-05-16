@@ -132,7 +132,7 @@ int OrderedList2::search(ListEntry x){
         i++;
     }
 
-    if(p != sentinel || p->entry != x){
+    if(p->entry != x || p == sentinel){
         return 0;
     }
     else{
@@ -143,3 +143,21 @@ int OrderedList2::search(ListEntry x){
 pré-condição: lista criada 
 pós-condição: retorna a posição que o elemento x encontra-se na lista - caso exista mais de um x na lista, retorna o primeiro encontrado - caso não encontre, retorna zero
 */
+
+void OrderedList2::searchInsert(ListEntry x){
+    ListPointer p, q;
+
+    sentinel->entry = x;
+    p = head;
+    while(p->entry < x){
+        p = p->nextNode;
+    }
+
+    if(p != sentinel && p->entry == x){
+        p->freq++;
+    }
+    else{
+        insert(x);
+        p->freq = 1;
+    }
+}

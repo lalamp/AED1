@@ -39,7 +39,7 @@ void List::insert(int p, ListEntry x){
     for(int i = count; i >= p; i--){
         entry[i+1] = entry[i];
     }
-    /*for(int i = p+1; i <= count; i++){
+    /*for(int i = p+1; i <= count+1; i++){  
         entry[i] = entry[i-1];
     }*/
     entry[p] = x;
@@ -62,7 +62,7 @@ void List::remove(int p, ListEntry &x){
 
     x = entry[p];
 
-    for(int i = p; i < count; i++){
+    for(int i = p; i < count; i++){   
         entry[i] = entry[i+1];
     }
 

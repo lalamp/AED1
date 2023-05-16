@@ -87,6 +87,7 @@ int Queue2::size(){
     int s = 0;
     QueuePointer p;
     p = head;
+    
     while(p != NULL){ 
         s++;
         p = p->nextNode;
