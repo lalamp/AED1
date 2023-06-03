@@ -16,10 +16,10 @@ class BinaryTree{
         void preOrder();
         void inOrder();
         void postOrder();
-        int nodes();
-        int leaves();
-        int height();
-        void print();
+        int nodes(); //número de nós
+        int leaves(); //número de folhas
+        int height(); //altura
+        void print(); //escreve a árvore
         
     private:
         struct TreeNode;
