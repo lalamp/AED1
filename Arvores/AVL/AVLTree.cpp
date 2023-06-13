@@ -2,6 +2,7 @@
 #include "AVLTree.h"
 using namespace std;
 
+//busca com inserção
 void AVLTree::searchInsert(TreeEntry x){ 
     bool h = false;
     searchInsert(x, root, h);
@@ -117,6 +118,8 @@ void AVLTree::searchInsert(int x, TreePointer &pA, bool &h){
                 pA->freq++;
 }
 
+
+//remoção
 bool AVLTree::remove(TreeEntry x){ 
     bool h=false;
     return remove(x, root, h);
