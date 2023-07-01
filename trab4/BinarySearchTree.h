@@ -35,7 +35,7 @@ class BinarySearchTree{
             string word;
             int frequency;
         };
-        words palavras[50000];
+        words palavras[30000];
         int i;
         
         //busca com inserção recursiva

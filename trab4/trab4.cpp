@@ -13,7 +13,7 @@ int main(){
     BinarySearchTree bst;
     AVLTree avl;
     string word;
-    ifstream theInput("C:/Users/lal4mp/Documents/codes/C++/c++usp/aed1/trab4/arquivos/exame.txt");
+    ifstream theInput("C:/Users/lal4mp/Documents/codes/C++/c++usp/aed1/trab4/arquivos/biblia.txt");
 
     //ler cada palavra do arquivo e inserir na ABB e na AVL
     while(theInput >> word){ 
@@ -346,8 +346,8 @@ void AVLTree::write(){
     cout << "H) numero de folhas da AVL = " << folhas() << endl;
     cout << "I) comparacoes = " << comparacoes << endl;
     cout << "J) rotacoes = " << rotacoes << endl;
-    cout << "Media de comparacoes por palavra = " << comparacoes/palavras_total << endl;
-    cout << "Media de rotacoes por palavra distinta = " << comparacoes/palavras_distintas << "\n\n" << endl;
+    cout << "Media de comparacoes por palavra = " << float(comparacoes)/float(palavras_total) << endl;
+    cout << "Media de rotacoes por palavra distinta = " << float(comparacoes)/float(palavras_distintas) << "\n\n" << endl;
 
     //10 palavras com maiores frequências
     //método de ordenação seleção (comparando pela frequência e, para frequência iguais, colocando em ordem alfabética)
