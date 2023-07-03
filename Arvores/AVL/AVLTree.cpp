@@ -118,7 +118,6 @@ void AVLTree::searchInsert(int x, TreePointer &pA, bool &h){
                 pA->freq++;
 }
 
-
 //remoção
 bool AVLTree::remove(TreeEntry x){ 
     bool h=false;

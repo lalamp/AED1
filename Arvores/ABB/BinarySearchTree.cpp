@@ -20,7 +20,14 @@ TreeEntry BinarySearchTree::minimum(){
         "Árvore vazia";
         return INT_MIN; // ???
     }
-    return minimum(root);
+    return minimum(root); 
+}    
+    //recursivo
+TreeEntry BinarySearchTree::minimum(TreePointer &t){
+    if(t->leftNode == NULL)
+        return t->entry;
+    else
+        minimum(t->leftNode);
 }
     //iterativo
 TreeEntry BinarySearchTree::minimum(TreePointer &t){
@@ -28,13 +35,6 @@ TreeEntry BinarySearchTree::minimum(TreePointer &t){
         t = t->leftNode;
     }
     return t->entry;
-}
-    //recursivo
-TreeEntry BinarySearchTree::minimum(TreePointer &t){
-    if(t->leftNode == NULL)
-        return t->entry;
-    else
-        minimum(t->leftNode);
 }
 
 //máximo
@@ -45,6 +45,13 @@ TreeEntry BinarySearchTree::maximum(){
     }
     return maximum(root);
 }
+    //recursivo
+TreeEntry BinarySearchTree::maximum(TreePointer &t){
+    if(t->rightNode == NULL)
+        return t->entry;
+    else
+        maximum(t->rightNode);
+}    
     //iterativo
 TreeEntry BinarySearchTree::maximum(TreePointer &t){
     while(t->rightNode != NULL){
@@ -52,13 +59,7 @@ TreeEntry BinarySearchTree::maximum(TreePointer &t){
     }
     return t->entry;
 }
-    //recursivo
-TreeEntry BinarySearchTree::maximum(TreePointer &t){
-    if(t->rightNode == NULL)
-        return t->entry;
-    else
-        maximum(t->rightNode);
-}
+
 
 //busca
     //iterativa
@@ -85,14 +86,14 @@ bool BinarySearchTree::getSearchRec(TreeEntry x){
 bool BinarySearchTree::searchRec(TreeEntry x, TreePointer &t){
     if(t == NULL)
         return false;
-
     if(x == t->entry) 
         return true;
-    else
+    else{
         if(x > t->entry)
             return searchRec(x, t->rightNode);
         else
-            return searchRec(x, t->leftNode);        
+            return searchRec(x, t->leftNode); 
+    }       
 }
 
 //inserção
@@ -160,7 +161,7 @@ void BinarySearchTree::insertRec(TreeEntry x, TreePointer &q, TreePointer &p, Tr
             p->leftNode = r;
 }
 
-//bucas com inserção 
+//buscas com inserção 
     //iterativa (conferir implementação)
 void BinarySearchTree::searchInsertIte(TreeEntry x){ 
     TreePointer t = root;

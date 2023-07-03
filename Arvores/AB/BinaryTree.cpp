@@ -62,6 +62,7 @@ int BinaryTree::leaves(TreePointer &t){
             return leaves(t->leftNode) + leaves(t->rightNode);
 }
 
+//altura da árvore
 int BinaryTree::height(){
     return height(root);
 }
@@ -79,7 +80,7 @@ int BinaryTree::height(TreePointer &t){
     }
 }
 
-
+//pré-ordem (esquerda primeiro)
 void BinaryTree::preOrder(){
     preOrder(root);
 }
@@ -91,6 +92,7 @@ void BinaryTree::preOrder(TreePointer &t){
     }
 }
 
+//em-ordem (fundo primeiro)
 void BinaryTree::inOrder(){
     inOrder(root);
 }
@@ -102,6 +104,7 @@ void BinaryTree::inOrder(TreePointer &t){
     }
 }
 
+//pós-ordem (direita primeiro)
 void BinaryTree::postOrder(){
     postOrder(root);
 }
@@ -113,6 +116,7 @@ void BinaryTree::postOrder(TreePointer &t){
     }
 }
 
+//escrever a árvore
 void BinaryTree::print(){
     print(root, 0);
 }

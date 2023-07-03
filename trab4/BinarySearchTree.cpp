@@ -7,22 +7,6 @@
 #include "BinarySearchTree.h"
 using namespace std;
 
-int main(){ 
-    BinarySearchTree bst;
-    string word;
-    ifstream theInput("C:/Users/lal4mp/Documents/codes/C++/c++usp/aed1/trab4/arquivos/biblia.txt");
-
-    //ler cada palavra do arquivo e inserir na ABB e na AVL
-    while(theInput >> word){ 
-        bst.searchInsert(word);
-    }
-    theInput.close();
-
-    bst.write();
-    
-    return 0;
-}
-
 BinarySearchTree::BinarySearchTree(){
     root = NULL;
     num_nodes = palavras_distintas = 0;
@@ -70,7 +54,7 @@ int BinarySearchTree::altura(){
 }
 int BinarySearchTree::altura(TreePointer &t){
     if(t == NULL)
-        return 0;
+        return -1;
     else{ 
         int L,R;
         L = altura(t->leftNode);
@@ -101,6 +85,7 @@ int BinarySearchTree::folhas(TreePointer &t){
 void BinarySearchTree::write(){
     write(root); //passar as palavras e suas frequências para um vetor
     
+    cout << setprecision(2) << fixed;
     cout << "\n                   ABB" << endl;
     cout << "\nA) palavras distintas = " << palavras_distintas << endl;
     cout << "B) total de palavras = " << palavras_total << endl;
@@ -138,7 +123,7 @@ void BinarySearchTree::write(){
 
     //imprime as 10 palavras de maiores freqûencias
     cout << "  PALAVRAS" << setw(15) << "FREQUENCIA" << endl;
-    for(int c = num_nodes; c >= num_nodes-10; c--){
+    for(int c = num_nodes; c > num_nodes-10; c--){
         cout << setw(10) << palavras[c].word << setw(15) << palavras[c].frequency << endl;
     }
     cout << "\n\n" << endl;

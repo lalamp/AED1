@@ -7,22 +7,6 @@
 #include "AVLTree.h"
 using namespace std;
 
-int main(){ 
-    AVLTree avl;
-    string word;
-    ifstream theInput("C:/Users/lal4mp/Documents/codes/C++/c++usp/aed1/trab4/arquivos/biblia.txt");
-
-    //ler cada palavra do arquivo e inserir na AVL
-    while(theInput >> word){ 
-        avl.searchInsert(word);
-    }
-    theInput.close();
-
-    avl.write();
-    
-    return 0;
-}
-
 AVLTree::AVLTree(){
     root = NULL;
     num_nodes = palavras_distintas = 0;
@@ -172,7 +156,7 @@ int AVLTree::altura(){
 }
 int AVLTree::altura(TreePointer &t){
     if(t == NULL)
-        return 0;
+        return -1;
     else{ 
         int L,R;
         L = altura(t->leftNode);
@@ -203,6 +187,7 @@ int AVLTree::folhas(TreePointer &t){
 void AVLTree::write(){
     write(root); //passar as palavras e suas frequências para um vetor
     
+    cout << setprecision(2) << fixed;
     cout << "\n                   AVL" << endl;
     cout << "\nA) palavras distintas = " << palavras_distintas << endl;
     cout << "B) total de palavras = " << palavras_total << endl;
@@ -211,8 +196,8 @@ void AVLTree::write(){
     cout << "H) numero de folhas da AVL = " << folhas() << endl;
     cout << "I) comparacoes = " << comparacoes << endl;
     cout << "J) rotacoes = " << rotacoes << endl;
-    cout << "Media de comparacoes por palavra = " << comparacoes/palavras_total << endl;
-    cout << "Media de rotacoes por palavra distinta = " << comparacoes/palavras_distintas << "\n\n" << endl;
+    cout << "Media de comparacoes por palavra = " << float(comparacoes)/float(palavras_total) << endl;
+    cout << "Media de rotacoes por palavra distinta = " << float(comparacoes)/float(palavras_distintas) << "\n\n" << endl;
 
     //10 palavras com maiores frequências
     //método de ordenação seleção (comparando pela frequência e, para frequência iguais, colocando em ordem alfabética)
@@ -242,7 +227,7 @@ void AVLTree::write(){
 
     //imprime as 10 palavras de maiores freqûencias
     cout << "  PALAVRAS" << setw(15) << "FREQUENCIA" << endl;
-    for(int c = num_nodes; c >= num_nodes-10; c--){
+    for(int c = num_nodes; c > num_nodes-10; c--){
         cout << setw(10) << palavras[c].word << setw(15) << palavras[c].frequency << endl;
     }
     cout << "\n\n" << endl;
