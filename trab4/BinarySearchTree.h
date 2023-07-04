@@ -29,7 +29,7 @@ class BinarySearchTree{
         int num_nodes;
         int palavras_distintas;
         int palavras_total;
-        int comparacoes;
+        int comparacoes_ABB;
 
         struct words{
             string word;

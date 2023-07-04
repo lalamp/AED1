@@ -11,7 +11,7 @@ BinarySearchTree::BinarySearchTree(){
     root = NULL;
     num_nodes = palavras_distintas = 0;
     palavras_total = 0;
-    comparacoes = 0;
+    comparacoes_ABB = 0;
     i = 1;
 }
 
@@ -31,18 +31,18 @@ void BinarySearchTree::searchInsert(TreeEntry x, TreePointer &t){
         palavras_total++;
     }
     else{
-        comparacoes++;
-        if(x == t->entry){
-            t->freq++;
-            palavras_total++;
+        comparacoes_ABB++;
+        if(x < t->entry){ //procurar x na subárvore esquerda
+            searchInsert(x, t->leftNode);
         }
         else{
-            comparacoes++;
-            if(x < t->entry){ //procurar x na subárvore esquerda
-                searchInsert(x, t->leftNode);
-            }
-            else{ //procurar x na subárvore direita
+            comparacoes_ABB++;
+            if(x > t->entry){ //procurar x na subárvore direita
                 searchInsert(x, t->rightNode);
+            }
+            else{ //x encontrado
+                t->freq++;
+                palavras_total++;
             }
         }
     }
@@ -92,11 +92,11 @@ void BinarySearchTree::write(){
     cout << "C) altura da arvore minima = " << ceil(log2(float(num_nodes) + 1) - 1) << endl;
     cout << "D) altura da ABB = " << altura() << endl;
     cout << "E) numero de folhas da ABB = " << folhas() << endl;
-    cout << "F) comparacoes = " << comparacoes << endl;
-    cout << "Media de comparacoes por palavra = " << float(comparacoes)/float(palavras_total) << "\n" << endl;
+    cout << "F) comparacoes = " << comparacoes_ABB << endl;
+    cout << "Media de comparacoes por palavra = " << float(comparacoes_ABB)/float(palavras_total) << "\n" << endl;
 
     //10 palavras com maiores freqûencias
-    //método de ordenação seleção (comparando pela frequência e, para frequência iguais, colocando em ordem alfabética)
+    //método de ordenação seleção (comparando pela frequência e, para frequência iguais, colocando em ordem contrária a alfabética)
     int i_menor;
     int aux_frequency;
     string aux_word;

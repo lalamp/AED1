@@ -55,11 +55,12 @@ int BinaryTree::leaves(){
 int BinaryTree::leaves(TreePointer &t){
     if(t == NULL)
         return 0;
-    else
+    else{
         if(t->leftNode == NULL && t->rightNode == NULL)
             return 1;
         else
             return leaves(t->leftNode) + leaves(t->rightNode);
+    }
 }
 
 //altura da árvore

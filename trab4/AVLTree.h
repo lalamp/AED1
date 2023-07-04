@@ -30,7 +30,7 @@ class AVLTree{
         int num_nodes;
         int palavras_distintas;
         int palavras_total;
-        int comparacoes;
+        int comparacoes_avl;
         int rotacoes;
 
         struct words{

@@ -11,7 +11,7 @@ AVLTree::AVLTree(){
     root = NULL;
     num_nodes = palavras_distintas = 0;
     palavras_total = 0;
-    comparacoes = 0;
+    comparacoes_avl = 0;
     rotacoes = 0;
     i = 1;
 }
@@ -21,7 +21,6 @@ void AVLTree::searchInsert(TreeEntry x){
     bool h = false;
     searchInsert(x, root, h);
 }
-
 void AVLTree::searchInsert(TreeEntry x, TreePointer &pA, bool &h){ 
     TreePointer pB, pC;
 
@@ -38,7 +37,7 @@ void AVLTree::searchInsert(TreeEntry x, TreePointer &pA, bool &h){
         palavras_total++;
     } 
     else{
-        comparacoes++;
+        comparacoes_avl++;
         if(x < pA->entry){ 
             searchInsert(x, pA->leftNode, h);
 
@@ -90,7 +89,7 @@ void AVLTree::searchInsert(TreeEntry x, TreePointer &pA, bool &h){
             }
         }
         else{
-            comparacoes++;
+            comparacoes_avl++;
             if(x > pA->entry){ 
                 searchInsert(x, pA->rightNode, h);
 
@@ -194,13 +193,13 @@ void AVLTree::write(){
     cout << "C) altura da arvore minima = " << ceil(log2(float(num_nodes) + 1) - 1) << endl;
     cout << "G) altura da AVL = " << altura() << endl;
     cout << "H) numero de folhas da AVL = " << folhas() << endl;
-    cout << "I) comparacoes = " << comparacoes << endl;
+    cout << "I) comparacoes = " << comparacoes_avl << endl;
     cout << "J) rotacoes = " << rotacoes << endl;
-    cout << "Media de comparacoes por palavra = " << float(comparacoes)/float(palavras_total) << endl;
-    cout << "Media de rotacoes por palavra distinta = " << float(comparacoes)/float(palavras_distintas) << "\n\n" << endl;
+    cout << "Media de comparacoes por palavra = " << float(comparacoes_avl)/float(palavras_total) << endl;
+    cout << "Media de rotacoes por palavra distinta = " << float(rotacoes)/float(palavras_distintas) << "\n\n" << endl;
 
     //10 palavras com maiores frequências
-    //método de ordenação seleção (comparando pela frequência e, para frequência iguais, colocando em ordem alfabética)
+    //método de ordenação seleção (comparando pela frequência e, para frequência iguais, colocando em ordem contrária a alfabética)
     int i_menor;
     int aux_frequency;
     string aux_word;
