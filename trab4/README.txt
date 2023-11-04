@@ -3,7 +3,7 @@ Larissa Magalhães Pereira - 13747904
 No arquivo trab4.cpp:
 Primeiramente, o usuário terá a opção de escolher qual texto será analisado: [1] mam [2] exame [3] biblia.
 A string file recebe o caminho do arquivo do texto escolhido para passá-lo para o ifstream theInput(file). 
-Com isso, o método searchInsert() é chamado, tanto pra ABB quanto pra AVL, para cada palavra do texto. Após todas as palavras adicionas corretamente nas árvores o método write() é chamado, novamente tanto pra ABB quanto pra AVL.
+Com isso, o método searchInsert() é chamado, tanto pra ABB quanto pra AVL, para cada palavra do texto. Após todas as palavras adicionadas corretamente nas árvores o método write() é chamado, novamente tanto pra ABB quanto pra AVL.
 
 Nos arquivos BinarySearchTree e AVLTree, tanto para as árvores ABB e as árvores AVL temos os seguintes métodos:
         
